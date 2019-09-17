@@ -6,20 +6,10 @@ module BestWork
     end
 
     def scrape_companies
-
       self.get_file.css("div.company--best-place").each  do |company|
-
-        company.css("h2 a").text
-        company.css("div.field-about-us div.item").text.strip
-        company.css("div.field-type").text.strip
-        company.css("time.datetime").text
-        company.css("div.field.field-location  div.item").text
+        BestWork::Startups.new.create_from_scraper(company)
       end
-      binding.pry
     end
-
-
-
 
   end
 end
