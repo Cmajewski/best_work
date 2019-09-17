@@ -1,6 +1,7 @@
-require "best_work/version"
+require 'open-uri'
 
-module BestWork
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "best_work/version"
+require_relative "best_work/cli"
+require_relative "best_work/scraper"
+require_relative "best_work/startups"
+require_relative "best_work/version"

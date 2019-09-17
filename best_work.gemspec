@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Caitlin Majewski'"]
   spec.email         = ["'cmajewski@wesleyan.edu'"]
 
-  spec.summary       = %q{50 Best startups to work at in NYC}
-  spec.description   = %q{Learn more about the 50 best startups to work at in NYC in 2019.}
+  spec.summary       = %q{100 Best startups to work at in NYC}
+  spec.description   = %q{Learn more about the 100 best startups to work at in NYC in 2019.}
   spec.homepage      = "https://github.com/Cmajewski/best_work.git"
   spec.license       = "MIT"
 
