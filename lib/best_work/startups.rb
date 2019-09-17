@@ -27,21 +27,23 @@ module BestWork
     end
 
     def self.find(input)
-      @@all[input-1]
+      self.all[input-1]
     end
 
     def self.print_all_with_index
-      @@all.select do |company,index|
+      self.all.select do |company,index|
         puts "#{index}. company"
       end
     end
 
     def self.random
-      @@all.sample
+      x=[]
+      x<<self.all.sample
+      
     end
 
     def self.count
-      @@all.count
+      self.all.count
     end
 
   end
