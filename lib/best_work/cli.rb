@@ -32,7 +32,7 @@ module BestWork
         puts "  Field: #{item.business_type}"
         puts "  Founded: #{item.founded}"
         puts "  Location: #{item.location}"
-        puts "  Location: #{item.description}"
+        puts "  Description: #{item.description}"
         puts "______________________"
       end
     end

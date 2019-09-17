@@ -3,22 +3,22 @@ module BestWork
     attr_accessor :name, :business_type, :description, :founded, :location
     @@all=[]
 
-    def initialize (name=nil,business_type=nil,description=nil,founded=nil,location=nil)
+    def initialize (name=nil,business_type=nil,location=nil,founded=nil,description=nil)
       @name=name
       @business_type=business_type
-      @description=description
       @founded=founded
       @location=location
+      @description=description
       @@all<<self
     end
 
     def self.create_from_scraper (path)
       self.new(
       path.css("h2 a").text,
-      path.css("div.field-about-us div.item").text.strip,
       path.css("div.field-type").text.strip,
-      path.css("time.datetime").text,
       path.css("div.field.field-location  div.item").text,
+      path.css("time.datetime").text,
+      path.css("div.field-about-us div.item").text.strip
       )
     end
 
