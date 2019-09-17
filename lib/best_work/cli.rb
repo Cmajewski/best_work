@@ -21,7 +21,8 @@ module BestWork
     end
 
     def menu
-      puts "Want us to find a company for you or do you want to browse the list yourself? (Find/list)"
+      puts ""
+      puts "Want us to find a company for you or do you want to browse the list yourself? (Find/list)".colorize(:blue)
       input_2=gets.chomp.downcase
         if input_2=="find"
           company(self.random)
@@ -49,56 +50,19 @@ module BestWork
         input_3=gets.chomp.downcase
         if input_3=="yes"
         more_description(item)
+        else
+        menu
         end
       end
 
       def more_description(item)
         puts ""
-        puts item.name.colorize(:navy)
-        puts "More about this company:".colorize(:blue)
+        puts item.name.colorize(:blue)
+        puts "More about this company:"
         puts item.description
         puts ""
         menu
       end
-
-
-    #   case input
-    #     while @input_2=="find"
-    #       random=Startups.find(rand(1..101))
-    #       company(random)
-    #       puts "Want to know more about this company? (Yes/No)"
-    #       input_3=gets.chomp.downcase
-    #       if input_3=="yes"
-    #         more_description(random)
-    #       else
-    #       when @input_2=='list'
-    #         all_companies
-    #       else
-    #         puts "Im not sure what you mean by that. Try selecting (Yes/No)."
-    #     end
-    #   end
-    # end
-
-    # def menu
-    #   input=nil
-    #   while input != "exit"
-    #   puts "Enter the number of the company you would like to learn more about,type list for the full list or type exit to leave:".colorize(:blue)
-    #   input=gets.chomp
-    #     if input!="list" && input.to_i>0 && input.to_i<=Startups.all.count
-    #         details=Startups.find (input.to_i)
-    #        more_description(details)
-    #     elsif input=="list"
-    #       all_companies
-    #     elsif input == "exit"
-    #       puts ""
-    #     else
-    #       puts "Not sure what you mean, please pick a number off the list or type list to see all places.".
-    #       puts ""
-    #       puts "______________________"
-    #     end
-    #   end
-    #   puts "Go get your dream job!"
-    # end
 
     def all_companies
       Startups.all.each_with_index do |item,index|
@@ -120,14 +84,13 @@ module BestWork
           details=Startups.find (input.to_i)
           more_description(details)
         elsif input == "exit"
-          puts ""Go get your dream job!""
+          puts "Go get your dream job!"
           exit
         else
           puts "Not sure what you mean, please pick a number off the list or type list to see all places.".
           puts ""
           puts "______________________"
         end
-      end
     end
 
 
