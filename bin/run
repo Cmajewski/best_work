@@ -2,6 +2,7 @@
 
 require './lib/best_work'
 require "pry"
+require "nokogiri"
 
 
 BestWork::CLI.new.run

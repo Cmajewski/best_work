@@ -7,7 +7,7 @@ module BestWork
 
     def scrape_companies
       self.get_file.css("div.company--best-place").each  do |company|
-        BestWork::Startups.new.create_from_scraper(company)
+        BestWork::Startups.create_from_scraper(company)
       end
     end
 
