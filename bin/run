@@ -3,6 +3,7 @@
 require './lib/best_work'
 require "pry"
 require "nokogiri"
+require "colorize"
 
 
 BestWork::CLI.new.run

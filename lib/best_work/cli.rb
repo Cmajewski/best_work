@@ -3,7 +3,7 @@ module BestWork
   attr_reader :company_list
 
     def run
-        BestWork::Scraper.new.scrape_companies
+        Scraper.new.scrape_companies
         welcome
         menu
 
@@ -28,11 +28,11 @@ module BestWork
 
     def company_list
       BestWork::Startups.all.each_with_index do |item,index|
-        puts "#{index+1}. #{item.name}"
-        puts "  Field: #{item.business_type}"
-        puts "  Founded: #{item.founded}"
-        puts "  Location: #{item.location}"
-        puts "  Description: #{item.description}"
+        puts "#{index+1}. #{item.name}".colorize(:blue)
+        puts "   Field: #{item.business_type}"
+        puts "   Founded: #{item.founded}"
+        puts "   Location: #{item.location}"
+        puts "   Description: #{item.description}"
         puts "______________________"
       end
     end
