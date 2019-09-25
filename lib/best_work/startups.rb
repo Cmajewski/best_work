@@ -36,11 +36,17 @@ module BestWork
       end
     end
 
-    def self.random
-      x=[]
-      x<<self.all.sample
-      
+    def self.print_with_sort
+    self.all.sort_by do |company|
+        company.name
+      end
     end
+
+    # def self.random
+    #   x=[]
+    #   x<<self.all.sample
+    #
+    # end
 
     def self.count
       self.all.count

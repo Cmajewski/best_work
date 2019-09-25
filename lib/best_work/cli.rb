@@ -23,10 +23,10 @@ module BestWork
     def menu
       puts ""
       puts "Want us to find a company for you or do you want to browse the list yourself? (Find/list)".colorize(:blue)
-      input_2=gets.chomp.downcase
-        if input_2=="find"
+      input=gets.chomp.downcase
+        if input=="find"
           company(self.random)
-        elsif input_2=="list"
+        elsif input=="list"
           all_companies
         else
         puts "Please select find or list."
@@ -47,8 +47,8 @@ module BestWork
         puts "______________________"
         puts ""
         puts "Would you like to learn more about this company? (Yes/No)"
-        input_3=gets.chomp.downcase
-        if input_3=="yes"
+        input=gets.chomp.downcase
+        if input=="yes"
         more_description(item)
         else
         menu
@@ -74,7 +74,13 @@ module BestWork
         #puts "   Description: #{item.description}"
         puts "______________________"
       end
+      puts "Do you want to see the list sorted? (Yes/No)"
+      input=gets.chomp.downcase
+      if input="yes"
+      sorted_list
+      else
       after_list
+      end
     end
 
     def after_list
@@ -83,14 +89,27 @@ module BestWork
         if input.to_i>0 && input.to_i<=Startups.all.count
           details=Startups.find (input.to_i)
           more_description(details)
-        elsif input == "exit"
+        elsif input.downcase == "exit"
           puts "Go get your dream job!"
           exit
         else
-          puts "Not sure what you mean, please pick a number off the list or type list to see all places.".
+          puts "Not sure what you mean, please pick sort, exit or list to continue.".
           puts ""
           puts "______________________"
         end
+    end
+
+    def sorted_list
+      Startups.print_with_sort.each_with_index do |item,index|
+        puts ""
+        puts "#{index+1}. #{item.name}".colorize(:blue)
+        puts "   Field: #{item.business_type}"
+        puts "   Founded: #{item.founded}"
+        puts "   Location: #{item.location}"
+        #puts "   Description: #{item.description}"
+        puts "______________________"
+      end
+      after_list
     end
 
 
